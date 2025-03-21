@@ -670,6 +670,9 @@ jobs:
           TRE_ID: ${{ secrets.TRE_ID }}
           LOCATION: ${{ vars.LOCATION }}
           FIREWALL_SKU: ${{ vars.FIREWALL_SKU}}
+          TEST_APP_ID: "${{ secrets.TEST_APP_ID }}"
+          TEST_ACCOUNT_CLIENT_ID: "${{ secrets.TEST_ACCOUNT_CLIENT_ID }}"
+          TEST_ACCOUNT_CLIENT_SECRET: "${{ secrets.TEST_ACCOUNT_CLIENT_SECRET }}"
 
       - name: State Store Migrations
         uses: ./.github/actions/devcontainer_run_command
