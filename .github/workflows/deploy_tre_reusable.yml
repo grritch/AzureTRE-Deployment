@@ -686,6 +686,9 @@ jobs:
           AAD_TENANT_ID: "${{ secrets.AAD_TENANT_ID }}"
           TRE_ID: ${{ secrets.TRE_ID }}
           LOCATION: ${{ vars.LOCATION }}
+          TEST_APP_ID: "${{ secrets.TEST_APP_ID }}"
+          TEST_ACCOUNT_CLIENT_ID: "${{ secrets.TEST_ACCOUNT_CLIENT_ID }}"
+          TEST_ACCOUNT_CLIENT_SECRET: "${{ secrets.TEST_ACCOUNT_CLIENT_SECRET }}"
           TERRAFORM_STATE_CONTAINER_NAME: ${{ vars.TERRAFORM_STATE_CONTAINER_NAME }}
           MGMT_RESOURCE_GROUP_NAME: ${{ secrets.MGMT_RESOURCE_GROUP_NAME }}
           MGMT_STORAGE_ACCOUNT_NAME: ${{ secrets.MGMT_STORAGE_ACCOUNT_NAME }}
