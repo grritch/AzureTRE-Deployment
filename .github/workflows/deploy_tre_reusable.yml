@@ -72,6 +72,22 @@ on:  # yamllint disable-line rule:truthy
       AZURE_CREDENTIALS:
         description: ""
         required: true
+      TEST_APP_ID:
+        description: "The Test Application Id used to interact with the API."
+        required: false
+      TEST_ACCOUNT_CLIENT_ID:
+        description: "The Test Automation Account Client Id used to interact with the API."
+        required: false
+      TEST_ACCOUNT_CLIENT_SECRET:
+        description: "The Test Automation Account Client Secret used to interact with the API."
+        required: false
+      TEST_WORKSPACE_APP_ID:
+        description: "The Test Workspace application Id used to interact with the API."
+        required: false
+      TEST_WORKSPACE_APP_SECRET:
+        description: "The Test Workspace application secret used to interact with the API."
+        required: false
+      
 
 # This will prevent multiple runs of this entire workflow.
 # We should NOT cancel in progress runs as that can destabilize the environment.
@@ -500,6 +516,9 @@ jobs:
           TRE_ID: ${{ secrets.TRE_ID }}
           LOCATION: ${{ vars.LOCATION }}
           BUNDLE_TYPE: ${{ matrix.BUNDLE_TYPE }}
+          TEST_APP_ID: "${{ secrets.TEST_APP_ID }}"
+          TEST_ACCOUNT_CLIENT_ID: "${{ secrets.TEST_ACCOUNT_CLIENT_ID }}"
+          TEST_ACCOUNT_CLIENT_SECRET: "${{ secrets.TEST_ACCOUNT_CLIENT_SECRET }}"
 
   register_bundles:
     name: Register Bundles
@@ -564,7 +583,10 @@ jobs:
           TRE_ID: ${{ secrets.TRE_ID }}
           LOCATION: ${{ vars.LOCATION }}
           BUNDLE_TYPE: ${{ matrix.BUNDLE_TYPE }}
-
+          TEST_APP_ID: "${{ secrets.TEST_APP_ID }}"
+          TEST_ACCOUNT_CLIENT_ID: "${{ secrets.TEST_ACCOUNT_CLIENT_ID }}"
+          TEST_ACCOUNT_CLIENT_SECRET: "${{ secrets.TEST_ACCOUNT_CLIENT_SECRET }}"
+          
   register_user_resource_bundles:
     name: Register User Resource Bundles
     runs-on: ubuntu-latest
@@ -617,6 +639,9 @@ jobs:
           LOCATION: ${{ vars.LOCATION }}
           BUNDLE_TYPE: ${{ matrix.BUNDLE_TYPE }}
           WORKSPACE_SERVICE_NAME: ${{ matrix.WORKSPACE_SERVICE_NAME }}
+          TEST_APP_ID: "${{ secrets.TEST_APP_ID }}"
+          TEST_ACCOUNT_CLIENT_ID: "${{ secrets.TEST_ACCOUNT_CLIENT_ID }}"
+          TEST_ACCOUNT_CLIENT_SECRET: "${{ secrets.TEST_ACCOUNT_CLIENT_SECRET }}"
 
   deploy_shared_services:
     name: Deploy shared services
