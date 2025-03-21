@@ -673,6 +673,7 @@ jobs:
           TEST_APP_ID: "${{ secrets.TEST_APP_ID }}"
           TEST_ACCOUNT_CLIENT_ID: "${{ secrets.TEST_ACCOUNT_CLIENT_ID }}"
           TEST_ACCOUNT_CLIENT_SECRET: "${{ secrets.TEST_ACCOUNT_CLIENT_SECRET }}"
+          FIREWALL_FORCE_TUNNEL_IP: ${{ vars.FIREWALL_FORCE_TUNNEL_IP}}
 
       - name: State Store Migrations
         uses: ./.github/actions/devcontainer_run_command
